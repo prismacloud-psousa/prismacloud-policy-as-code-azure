@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "prismacloud_policy_as_code"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 httpx = "^0.23.3"
 click = "^8.1.3"
 
