@@ -1,0 +1,17 @@
+{
+    "name": "Azure SQL server does not have private endpoints",
+    "policyType": "config",
+    "severity": "medium",
+    "rule": {
+        "name": "Azure SQL server does not have private endpoints",
+        "query": "config from cloud.resource where cloud.type = 'azure' and api.name = 'azure-sql-server-list' AND json.rule = ['sqlServer'].['properties.privateEndpointConnections'] is empty",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "cloudType": "azure",
+    "labels": [],
+    "enabled": true
+}

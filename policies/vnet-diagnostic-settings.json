@@ -1,0 +1,19 @@
+{
+    "name": "Deploy diagnostic settings for Virtual Networks.",
+    "policyType": "config",
+    "description": "Deploy diagnostic settings for Virtual Networks.",
+    "severity": "medium",
+    "rule": {
+        "name": "Deploy diagnostic settings for Virtual Networks.",
+        "query": "config from cloud.resource where cloud.type = 'azure' AND api.name = 'azure-network-vnet-list' AND json.rule = diagnosticSettings.value is false",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "cloudType": "azure",
+    "complianceMetadata": [],
+    "labels": [],
+    "enabled": true
+}

@@ -1,0 +1,18 @@
+{
+    "name": "Deprecated accounts with owner permissions with role assignment on a subscription",
+    "policyType": "config",
+    "description": "",
+    "severity": "informational",
+    "rule": {
+        "name": "Deprecated accounts with owner permissions with role assignment on a subscription",
+        "query": "config from cloud.resource where cloud.type = 'azure' and api.name = 'azure-active-directory-user' and json.rule = accountEnabled is false as X; config from cloud.resource where api.name = 'azure-role-assignment' and json.rule = properties.roleDefinition.properties.roleName equals \"Owner\" as Y; filter '($.X.id == $.Y.properties.principalId)'; show Y;",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "cloudType": "azure",
+    "labels": [],
+    "enabled": true
+}

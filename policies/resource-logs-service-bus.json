@@ -1,0 +1,20 @@
+{
+    "name": "Resource logs in Service Bus should be enabled",
+    "policyType": "config",
+    "description": "Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised",
+    "severity": "informational",
+    "rule": {
+        "name": "Resource logs in Service Bus should be enabled",
+        "query": "config from cloud.resource where cloud.type = 'azure' and api.name = 'azure-service-bus-namespace' AND json.rule = diagnosticSettings[*].properties.logs[*].retentionPolicy.enabled does not exist",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "cloudType": "azure",
+    "labels": [
+        "CIS"
+    ],
+    "enabled": true
+}

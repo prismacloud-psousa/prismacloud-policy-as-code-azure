@@ -1,0 +1,18 @@
+{
+    "name": "Azure Network Interface doesn't have a Network Security Group attached",
+    "policyType": "config",
+    "description": "",
+    "severity": "low",
+    "rule": {
+        "name": "Azure Network Interface doesn't have a Network Security Group attached",
+        "query": "config from cloud.resource where api.name = 'azure-network-nic-list' and json.rule = ['properties.networkSecurityGroup'].id length less than 1",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "cloudType": "azure",
+    "labels": [],
+    "enabled": true
+}

@@ -1,0 +1,18 @@
+{
+    "name": "Azure for PostgreSQL server doesn't have private endpoint enabled",
+    "description": "",
+    "policyType": "config",
+    "severity": "medium",
+    "cloudType": "azure",
+    "rule": {
+        "name": "Azure for PostgreSQL server doesn't have private endpoint enabled",
+        "query": "config from cloud.resource where cloud.type = 'azure' and api.name = 'azure-data-lake-analytics-diagnostic-settings' AND json.rule = properties.logs[*].retentionPolicy.enabled does not exist",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "labels": [],
+    "enabled": true
+}

@@ -1,0 +1,18 @@
+{
+    "name": "Azure for MySQL server doesn't have private endpoint enabled",
+    "policyType": "config",
+    "description": "",
+    "severity": "medium",
+    "rule": {
+        "name": "Azure for MySQL server doesn't have private endpoint enabled",
+        "query": "config from cloud.resource where cloud.type = 'azure' and api.name = 'azure-mysql-server' and json.rule = virtualNetworkRules[*] is empty",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "cloudType": "azure",
+    "labels": [],
+    "enabled": true
+}

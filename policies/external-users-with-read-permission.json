@@ -1,0 +1,18 @@
+{
+    "name": "External account has read permissions",
+    "policyType": "config",
+    "description": "",
+    "severity": "informational",
+    "rule": {
+        "name": "External account has read permissions",
+        "query": "config from cloud.resource where cloud.type = 'azure' AND api.name = 'azure-active-directory-user' and json.rule = identities[*].issuer equals \"ExternalAzureAD\" and accountEnabled is true as X; config from cloud.resource where api.name = 'azure-role-assignment' and json.rule = properties.roleDefinition.properties.permissions[*].actions[*] any end with \"read\" as Y; filter '($.X.id == $.Y.properties.principalId)'; show Y;",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "cloudType": "azure",
+    "labels": [],
+    "enabled": true
+}

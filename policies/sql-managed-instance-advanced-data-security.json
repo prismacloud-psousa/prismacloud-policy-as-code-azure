@@ -1,0 +1,19 @@
+{
+    "name": "Advanced data security should be enabled on SQL Managed Instance",
+    "description": "Audit each SQL Managed Instance without advanced data security.",
+    "policyType": "config",
+    "severity": "medium",
+    "rule": {
+        "name": "Advanced data security should be enabled on SQL Managed Instance",
+        "query": "config from cloud.resource where cloud.type = 'azure' and api.name = 'azure-sql-server-list' AND json.rule = ['sqlServer'].['properties.privateEndpointConnections'] is empty",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "cloudType": "azure",
+    "complianceMetadata": [],
+    "labels": [],
+    "enabled": true
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Only secure connections to your Redis Cache should be enabled",
+    "policyType": "config",
+    "description": "Azure Cache for Redis provides an in-memory data store based on the open-source software Redis. Redis improves the performance and scalability of an application that uses on backend data stores heavily. It is able to process large volumes of application request by keeping frequently accessed data in the server memory that can be written to and read from quickly",
+    "severity": "medium",
+    "rule": {
+        "name": "Only secure connections to your Redis Cache should be enabled",
+        "query": "config from cloud.resource where cloud.type = 'azure' AND cloud.service = 'Azure Cache' AND api.name = 'azure-cache-redis' AND json.rule = properties.enableNonSslPort is true",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "cloudType": "azure",
+    "complianceMetadata": [],
+    "labels": [],
+    "enabled": true
+}

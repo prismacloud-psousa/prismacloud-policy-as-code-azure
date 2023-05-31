@@ -1,0 +1,18 @@
+{
+    "name": "Disk encryption is not enabled on Azure Data Explorer",
+    "policyType": "config",
+    "description": "",
+    "severity": "informational",
+    "rule": {
+        "name": "Disk encryption is not enabled on Azure Data Explorer",
+        "query": "config from cloud.resource where cloud.type = 'azure' and api.name = 'azure-kusto-clusters' AND json.rule = properties.enableDiskEncryption is false ",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "",
+    "cloudType": "azure",
+    "labels": [],
+    "enabled": true
+}

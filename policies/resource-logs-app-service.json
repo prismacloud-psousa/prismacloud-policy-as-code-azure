@@ -1,0 +1,18 @@
+{
+    "name": "App Service apps should have resource logs enabled",
+    "policyType": "config",
+    "description": "Audit enabling of resource logs on the app. This enables you to recreate activity trails for investigation purposes if a security incident occurs or your network is compromised.",
+    "severity": "informational",
+    "cloudType": "azure",
+    "labels": [ "CIS" ],
+    "enabled": true,
+    "rule": {
+        "name": "App Service apps should have resource logs enabled",
+        "query": "config from cloud.resource where cloud.type = 'azure' and api.name = 'azure-app-service-diagnostic-settings' and json.rule = properties.logs[*].retentionPolicy.enabled does not exist",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": ""
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Geo-redundant storage should be enabled for Storage Accounts",
+    "policyType": "config",
+    "description": "",
+    "severity": "informational",
+    "rule": {
+        "name": "Geo-redundant storage should be enabled for Storage Accounts",
+        "query": "config from cloud.resource where api.name = 'azure-storage-account-list' and json.rule = sku.name contains \"LRS\"",
+        "parameters": {
+            "savedSearch": "true"
+        },
+        "type": "Config"
+    },
+    "recommendation": "When creating a storage account in Microsoft Azure, make sure to select a replication option that leverage geo-redundant zones.",
+    "cloudType": "azure",
+    "complianceMetadata": [],
+    "labels": [],
+    "enabled": true
+}
