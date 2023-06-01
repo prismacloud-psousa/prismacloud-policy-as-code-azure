@@ -11,10 +11,6 @@ import httpx
 import click
 
 
-def remove_keys(d: dict, keys: set):
-    return {k:v for k,v in d.items() if k not in keys}
-
-
 class PrismaCloudApi:
     """ Prisma Cloud API client """
 
@@ -52,7 +48,7 @@ class PrismaCloudApi:
         url = f"https://{self.url}{endpoint}"
 
         response = httpx.request(method, url, headers=headers, 
-                                json=body, params=query_params)
+                                json=body, params=query_params, timeout=None)
 
         response.raise_for_status()
 
@@ -94,7 +90,7 @@ def load_local_policies(path: pathlib.Path) -> list[dict]:
                 policy = json.load(fp)
 
                 policies.append(policy)
-            
+                time.sleep()
     return policies
 
 
